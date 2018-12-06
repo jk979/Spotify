@@ -1,13 +1,13 @@
 ---
 title: Spotify Project Homepage
 notebook: index.md
-nav_include: 1
+nav_include: 0
 ---
 
-This is the home page for the Spotify Project where we can write stuff. 
+This is the home page for the Spotify Project where we can write stuff.
 
 ## Introduction
-This is the introduction. 
+This is the introduction.
 >This box is a quote box
 This is a *big* project...or maybe a **big** project.
 
