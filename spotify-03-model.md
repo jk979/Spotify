@@ -1,3 +1,13 @@
+---
+title: Model
+notebook: spotify-03-model.ipynb
+nav_include: 3
+---
+
+##Contents
+{:.no_toc}
+*
+{: toc}
 
 
 
