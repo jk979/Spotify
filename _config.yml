@@ -1,1 +1,9 @@
 theme: jekyll-theme-cayman
+title: Spotify Project
+description: This is the Spotify Project Description from CONFIG YML
+baseurl:
+markdown:kramdown
+kramdown:
+	math_engine:mathjax
+	input: GFM
+	syntax_highlighter: rouge
