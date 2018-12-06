@@ -1,6 +1,6 @@
 ---
 title: Spotify Project 12-5
-authors: JK, AS, AB
+notebook: index.md
 nav_include: 1
 ---
 
