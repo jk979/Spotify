@@ -1,5 +1,7 @@
 ---
 title: Spotify Project 12-5
+authors: JK, AS, AB
+nav_include: 1
 ---
 
 This is the home page for the Spotify Project where we can write stuff. 
