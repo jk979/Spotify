@@ -1,4 +1,12 @@
-
+---
+title: EDA
+notebook: spotify-eda.md
+nav_include: 2
+---
+## Contents
+{:.no_toc}
+*
+{: toc}
 
 
 ```python
@@ -15,6 +23,9 @@ import spotipy.oauth2
 import seaborn as sns
 
 from sklearn.model_selection import train_test_split
+from sklearn.decomposition import PCA
+
+from scipy import sparse
 from scipy.sparse.linalg import svds
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics.pairwise import linear_kernel
@@ -25,49 +36,10 @@ fileDir = os.path.dirname(os.path.realpath('__file__'))
 ```
 
 
+    C:\Users\asage\AppData\Local\Continuum\anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+      from ._conv import register_converters as _register_converters
     Using TensorFlow backend.
 
-
-
-    ---------------------------------------------------------------------------
-
-    RuntimeError                              Traceback (most recent call last)
-
-    RuntimeError: module compiled against API version 0xc but this version of numpy is 0xb
-
-
-
-    ---------------------------------------------------------------------------
-
-    ImportError                               Traceback (most recent call last)
-
-    ImportError: numpy.core.multiarray failed to import
-
-
-
-    ---------------------------------------------------------------------------
-
-    ImportError                               Traceback (most recent call last)
-
-    ImportError: numpy.core.umath failed to import
-
-
-
-    ---------------------------------------------------------------------------
-
-    ImportError                               Traceback (most recent call last)
-
-    ImportError: numpy.core.umath failed to import
-
-
-**Major To-Dos**:
-- Need genres for validation
-- Need lyrics for additional models
-- Audio data would be a nice to have for additional models
-- Other to-dos for generalizing methods / improving usability of code included below
-- Try building factorization machine model
-- Comparison of error on various models tried below
-- **Replace track frame with URI frame given non-unique names**
 
 **Section 1. The below loads in the datasets. The explode and unpack functions are used to generate a matrix with a line for each song play, with a playlist ID to indicate which playlist it originally came from.**
 
@@ -323,6 +295,27 @@ unique_tracks = playlists_frame.drop_duplicates(subset='track_uri')
 ```
 
 
+
+
+```python
+tracks_sample = tracks_frame.sample(n=2000,axis=1)
+tracks_sp = sparse.csr_matrix(tracks_sample.values)
+fig, ax = plt.subplots(figsize=(100,100))
+ax.spy(tracks_sp)
+```
+
+
+
+
+
+    <matplotlib.lines.Line2D at 0x1714d46ed68>
+
+
+
+
+![png](spotify-eda_files/spotify-eda_8_1.png)
+
+
 **Section 3. The cells below perform matrix factorization and test it. Matrix factorization attempts to find the "k" dimensional matrix that best approximates user's actual preferences. There is no interpretability of the resulting values, but it has strong predictive power.**
 
 
@@ -536,7 +529,7 @@ np.sqrt((np.power(tracks_frame - all_predicted,2)).values.sum()/(len(all_predict
 # Test matrix factorization predictions
 def predict_mf(pid,pred_df,tracks_frame,num_recommendations=10):
     sorted_predictions = pred_df.iloc[pid,:].sort_values(ascending=False)
-    print("Previous Picks:",tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:] == 1].index)
+    print("Previous Picks:",tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:] == 1].index[0:5])
     print("Recommended Songs:",sorted_predictions[0:num_recommendations].index)
 
 # Sample Predictions
@@ -547,39 +540,7 @@ predict_mf(350,pred_df,tracks_frame) #Spanish songs
 
 
     Previous Picks: Index(['0 Sentimientos (Remix) [feat. Noriel, Darkiel, Lyan, Messiah & Baby Rasta]',
-           'Acércate', 'Ahora Dice', 'Ahora Me Llama', 'Ahora Me Llama - Remix',
-           'Ahora Que Te Vas (feat. Cosculluela)', 'Amigos y Enemigos',
-           'Amigos y Enemigos - Remix', 'Ay Mami (feat. Bryant Myers)',
-           'Bebe (feat. Anuel AA)', 'Bella y Sensual', 'Bonita',
-           'Bonita (Down 4 Me Remix) [feat. Kevin Roldan]', 'Báilame - Remix',
-           'Como Antes', 'Corazon De Seda (feat. Ozuna)', 'Cuatro Babys',
-           'Desobediente (feat. Alexis Y Fido)', 'Desperte Sin Ti', 'Diabla',
-           'Dile Que Tu Me Quieres',
-           'Diles (feat. Arcangel, Nengo Flow, Dj Luian & Mambo Kings)',
-           'Doble Personalidad', 'El Amante',
-           'El Dinero No Lo Es Todo (feat. Ozuna)', 'El Farsante',
-           'En La Intimidad', 'En Que País', 'Explícale', 'Fanática Sensual',
-           'Felices los 4', 'Guaya', 'Hablame Claro', 'Hola Beba',
-           'La Oportunidad - Remix', 'Lento', 'Lunes-Viernes', 'Mayores',
-           'Me Acostumbre (feat. Bad Bunny)', 'Me Ama Me Odia',
-           'Me Llama (feat. Jory Boy, Ñejo, Darkiel & Gigolo Y La Exce)',
-           'Me Mata', 'Me Rehúso', 'Mera Bebe', 'Mi Tesoro (feat. Nicky Jam)',
-           'Netflixxx', 'Nunca Me Amo', 'Odisea', 'Otra Vez (feat. J Balvin)',
-           'Pa Pasar El Rato', 'Pa Ti', 'Pierdo la Cabeza - Official Remix',
-           'Po' encima (feat. Bryant Myers)', 'Por Qué Sigues Con Él - Remix',
-           'Por Ti', 'Pure', 'Quieres Enamorarme', 'Quiero Repetir', 'Recuerdos',
-           'Rosè (feat. Mambo Kingz, DJ Luian & Bf)',
-           'Santo Pecado (feat. Xido & El Conejo Malo) - Bryant Myers',
-           'Se Preparó', 'Sexto Sentido (feat. Bad Bunny)',
-           'Si Me Dices Que Si (feat. Nicky Jam)',
-           'Si Me Muero (feat. Farruko, Lary Over, Nengo Flow & Darell)',
-           'Si Te Busco', 'Si Tu Lo Dejas', 'Sigo Extrañándote', 'Snapchat',
-           'Sola',
-           'Sola (Remix) [feat. Daddy Yankee, Wisin, Farruko, Zion & Lennox]',
-           'Soy Igual Que Tú', 'Soy Peor',
-           'Soy Peor Remix (feat. J Balvin, Ozuna & Arcangel)',
-           'Tu No Metes Cabra', 'Tú Foto', 'Un Ratito Mas', 'Una Lady Como Tú',
-           'Visionary', 'Vuelve'],
+           'Acércate', 'Ahora Dice', 'Ahora Me Llama', 'Ahora Me Llama - Remix'],
           dtype='object', name='track_name')
     Recommended Songs: Index(['Ay Vamos', 'Fanática Sensual', 'El Perdón', 'Ginza', '6 AM',
            'Borro Cassette', 'Dile Que Tu Me Quieres',
@@ -696,16 +657,16 @@ for i in range(0,len(distances.flatten())):
 ```
 
 
-    Original Track: Fake ID (feat. Gretchen Wilson)
-    Nearest Neighbor Number1: Save A Horse (Ride A Cowboy) with distance: 0.434314575050762
-    Nearest Neighbor Number2: You Sound Good to Me with distance: 0.5527864045000421
-    Nearest Neighbor Number3: Drink Drank Drunk (feat. Big & Rich and Big Smo) with distance: 0.5527864045000421
-    Nearest Neighbor Number4: Redneck Games - with Alan Jackson with distance: 0.5527864045000421
-    Nearest Neighbor Number5: Ride On, Ride Out - feat. DMC with distance: 0.5527864045000421
-    Nearest Neighbor Number6: I Ain't In Checotah Anymore with distance: 0.5527864045000421
-    Nearest Neighbor Number7: Cut Me Some Slack with distance: 0.5527864045000421
-    Nearest Neighbor Number8: Lie a Little Better with distance: 0.5527864045000421
-    Nearest Neighbor Number9: Take My Drunk Ass Home - Demo with distance: 0.5527864045000421
+    Original Track: Words I Don't Remember
+    Nearest Neighbor Number1: Rubdown with distance: 0.0
+    Nearest Neighbor Number2: No One Lives Forever with distance: 0.0
+    Nearest Neighbor Number3: Dark as Days with distance: 0.0
+    Nearest Neighbor Number4: Piano concerto No. 2 in G Minor, Op. 22: Piano concerto No. 2 in G Minor, Op. 22: II. Allegro scherzando with distance: 0.0
+    Nearest Neighbor Number5: Smoking the Day Away with distance: 0.0
+    Nearest Neighbor Number6: Serving Goffman with distance: 0.0
+    Nearest Neighbor Number7: Camarilla with distance: 0.0
+    Nearest Neighbor Number8: Lucky Girl with distance: 0.0
+    Nearest Neighbor Number9: So Much Love So Little Time with distance: 0.0
 
 
 **Section 6. This is an implementation of a neural network based approach to recommendation. The approach has many constraints - if we train it on the full dataset, it will always predict a 0. Instead, we took a limited approach and filtered for the most popular songs (at least 30) and playlists that contained at least 30 songs after the filter.**
@@ -766,28 +727,28 @@ model.summary()
     __________________________________________________________________________________________________
     Layer (type)                    Output Shape         Param #     Connected to                     
     ==================================================================================================
-    input_61 (InputLayer)           (None, 1)            0                                            
+    input_1 (InputLayer)            (None, 1)            0                                            
     __________________________________________________________________________________________________
-    input_62 (InputLayer)           (None, 1)            0                                            
+    input_2 (InputLayer)            (None, 1)            0                                            
     __________________________________________________________________________________________________
-    embedding_61 (Embedding)        (None, 1, 15)        5160        input_61[0][0]                   
+    embedding_1 (Embedding)         (None, 1, 15)        5160        input_1[0][0]                    
     __________________________________________________________________________________________________
-    embedding_62 (Embedding)        (None, 1, 15)        1260        input_62[0][0]                   
+    embedding_2 (Embedding)         (None, 1, 15)        1260        input_2[0][0]                    
     __________________________________________________________________________________________________
-    flatten_53 (Flatten)            (None, 15)           0           embedding_61[0][0]               
+    flatten_1 (Flatten)             (None, 15)           0           embedding_1[0][0]                
     __________________________________________________________________________________________________
-    flatten_54 (Flatten)            (None, 15)           0           embedding_62[0][0]               
+    flatten_2 (Flatten)             (None, 15)           0           embedding_2[0][0]                
     __________________________________________________________________________________________________
-    dot_17 (Dot)                    (None, 1)            0           flatten_53[0][0]                 
-                                                                     flatten_54[0][0]                 
+    dot_1 (Dot)                     (None, 1)            0           flatten_1[0][0]                  
+                                                                     flatten_2[0][0]                  
     __________________________________________________________________________________________________
-    dense_95 (Dense)                (None, 100)          200         dot_17[0][0]                     
+    dense_1 (Dense)                 (None, 100)          200         dot_1[0][0]                      
     __________________________________________________________________________________________________
-    dense_96 (Dense)                (None, 50)           5050        dense_95[0][0]                   
+    dense_2 (Dense)                 (None, 50)           5050        dense_1[0][0]                    
     __________________________________________________________________________________________________
-    dense_97 (Dense)                (None, 25)           1275        dense_96[0][0]                   
+    dense_3 (Dense)                 (None, 25)           1275        dense_2[0][0]                    
     __________________________________________________________________________________________________
-    dense_98 (Dense)                (None, 1)            26          dense_97[0][0]                   
+    dense_4 (Dense)                 (None, 1)            26          dense_3[0][0]                    
     ==================================================================================================
     Total params: 12,971
     Trainable params: 12,971
@@ -804,65 +765,90 @@ model.save('model.h5')
 
 
     Epoch 1/30
-    28469/28469 [==============================] - 3s 112us/step - loss: 0.1273
+    28469/28469 [==============================] - 1s 37us/step - loss: 0.1467
     Epoch 2/30
-    28469/28469 [==============================] - 1s 46us/step - loss: 0.1254
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1251
     Epoch 3/30
-    28469/28469 [==============================] - 2s 54us/step - loss: 0.1243
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1234
     Epoch 4/30
-    28469/28469 [==============================] - 1s 46us/step - loss: 0.1236
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1230
     Epoch 5/30
-    28469/28469 [==============================] - 2s 55us/step - loss: 0.1227
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1231
     Epoch 6/30
-    28469/28469 [==============================] - 2s 55us/step - loss: 0.1228
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1227
     Epoch 7/30
-    28469/28469 [==============================] - 2s 54us/step - loss: 0.1222
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1223
     Epoch 8/30
-    28469/28469 [==============================] - 2s 57us/step - loss: 0.1216
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1221
     Epoch 9/30
-    28469/28469 [==============================] - 2s 67us/step - loss: 0.1211
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1219
     Epoch 10/30
-    28469/28469 [==============================] - 2s 61us/step - loss: 0.1162
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1217
     Epoch 11/30
-    28469/28469 [==============================] - 2s 64us/step - loss: 0.1101
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1214
     Epoch 12/30
-    28469/28469 [==============================] - 2s 66us/step - loss: 0.1050
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1212
     Epoch 13/30
-    28469/28469 [==============================] - 2s 58us/step - loss: 0.0995
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1208
     Epoch 14/30
-    28469/28469 [==============================] - 2s 66us/step - loss: 0.0933
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.1189
     Epoch 15/30
-    28469/28469 [==============================] - 2s 57us/step - loss: 0.0873
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.1098
     Epoch 16/30
-    28469/28469 [==============================] - 1s 51us/step - loss: 0.0812
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.0990
     Epoch 17/30
-    28469/28469 [==============================] - 1s 48us/step - loss: 0.0764
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0912
     Epoch 18/30
-    28469/28469 [==============================] - 1s 50us/step - loss: 0.0720
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.0842
     Epoch 19/30
-    28469/28469 [==============================] - 1s 47us/step - loss: 0.0683
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0786
     Epoch 20/30
-    28469/28469 [==============================] - 1s 47us/step - loss: 0.0653
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0738
     Epoch 21/30
-    28469/28469 [==============================] - 1s 52us/step - loss: 0.0627
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0697
     Epoch 22/30
-    28469/28469 [==============================] - 1s 50us/step - loss: 0.0611
+    28469/28469 [==============================] - 1s 22us/step - loss: 0.0658
     Epoch 23/30
-    28469/28469 [==============================] - 1s 44us/step - loss: 0.0594
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0622
     Epoch 24/30
-    28469/28469 [==============================] - 1s 47us/step - loss: 0.0587
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0596
     Epoch 25/30
-    28469/28469 [==============================] - 1s 44us/step - loss: 0.0579
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0578
     Epoch 26/30
-    28469/28469 [==============================] - 1s 46us/step - loss: 0.0570
+    28469/28469 [==============================] - 1s 21us/step - loss: 0.0567
     Epoch 27/30
-    28469/28469 [==============================] - 1s 48us/step - loss: 0.0563
+    28469/28469 [==============================] - 1s 23us/step - loss: 0.0557
     Epoch 28/30
-    28469/28469 [==============================] - 1s 44us/step - loss: 0.0560
+    28469/28469 [==============================] - 1s 23us/step - loss: 0.0551
     Epoch 29/30
-    28469/28469 [==============================] - 2s 61us/step - loss: 0.0558
+    28469/28469 [==============================] - 1s 24us/step - loss: 0.0545
     Epoch 30/30
-    28469/28469 [==============================] - 2s 53us/step - loss: 0.0557
+    28469/28469 [==============================] - 1s 26us/step - loss: 0.0537
+
+
+
+
+```python
+filter_sp = sparse.csr_matrix(filter_data.values)
+print(filter_sp.shape)
+fig, ax = plt.subplots(figsize=(150,150))
+ax.spy(filter_sp)
+# Substantially decreased sparsity of matrix compared to baseline (might not be considered sparse any more)
+```
+
+
+    (83, 343)
+
+
+
+
+
+    <matplotlib.lines.Line2D at 0x17108c937b8>
+
+
+
+
+![png](spotify-eda_files/spotify-eda_22_2.png)
 
 
 
@@ -904,8 +890,7 @@ print("Previous Tracks:",actual_tracks)
 ```
 
 
-    Predicted Tracks: ['Bad and Boujee (feat. Lil Uzi Vert)' 'goosebumps'
-     'Drowning (feat. Kodak Black)']
+    Predicted Tracks: ['Bad and Boujee (feat. Lil Uzi Vert)']
     Previous Tracks: ['1-800-273-8255' 'Best I Ever Had' 'Bodak Yellow' 'Bounce Back'
      'Butterfly Effect' 'Caroline' 'Congratulations' 'DNA.' "Don't" 'HUMBLE.'
      'HeadBand (feat. 2 Chainz)' "I Don't Fuck With You" "I'm the One"
@@ -962,8 +947,9 @@ get_features(57500,57575)
 
 
 ```python
-unique_uris = unpack(unique_uris,'features','')
-unique_uris.to_csv('trackfeatures.csv')
+#unique_uris = unpack(unique_uris,'features','')
+#unique_uris.to_csv('trackfeatures.csv')
+unique_uris = pd.read_csv('trackfeatures.csv',index_col=0)
 ```
 
 
@@ -973,7 +959,6 @@ unique_uris.to_csv('trackfeatures.csv')
 features_df = unique_uris.drop(['analysis_url','id','time_signature','track_href','type','uri','mode','key','duration_ms','instrumentalness'],axis=1)
 features_df.index = features_df.track_uri
 features_df.drop(['track_uri'],axis=1,inplace=True)
-# potentially add back mode and key later as dummies
 
 # Scale data to between 0 and 1
 x = features_df.values
@@ -989,7 +974,7 @@ features_df = temp_df
 
 
 ```python
-rand_track = features_df.iloc[20] # random track selection
+rand_track = features_df.iloc[45] # random track selection
 corr_with_rand = features_df.corrwith(rand_track,axis=1)
 corr_with_rand = pd.DataFrame(corr_with_rand,columns=['pearsonR'])
 corr_with_rand.dropna(inplace=True)
@@ -1001,17 +986,41 @@ print("Recommended Tracks:",tracks_join.track_name[1:])
 ```
 
 
-    Original Track: Live For
-    Recommended Tracks: 1                  BTFU (Mommy Issues)
-    2                             Brothers
-    3                 Braille (feat. Lori)
-    4                                Dress
-    5    The Calm - Album Version (Edited)
-    6                            Last Time
-    7            Drip, Drop, Drippity Drop
-    8             Didn't I See This Movie?
-    9                              Borders
+    Original Track: El Morro
+    Recommended Tracks: 1           El Toro Encartado
+    2         Por Culpa Del Licor
+    3                    La Momia
+    4             Sigue Tu Camino
+    5                El Muchachon
+    6              Where You Lead
+    7                    El Gross
+    8    La Pachanga Se Baila Asi
+    9                   Ay' Maria
     Name: track_name, dtype: object
+
+
+
+
+```python
+pca = PCA(n_components=2)
+pca.fit(features_df)
+features_pca = pca.transform(features_df)
+plt.scatter(features_pca[:, 0], features_pca[:, 1], alpha=0.002)
+plt.title("2-Dimensional Visualization of Audio Features")
+plt.xlabel("PCA Component 1")
+plt.ylabel("PCA Component 2")
+```
+
+
+
+
+
+    Text(0,0.5,'PCA Component 2')
+
+
+
+
+![png](spotify-eda_files/spotify-eda_32_1.png)
 
 
 
@@ -1023,12 +1032,14 @@ rec_feat =  pd.merge(corr_with_rand,features_df, how='left', left_on=corr_with_r
 rec_feat.columns
 fig, axs = plt.subplots(4,2, figsize=(20,15))
 for i in range(0,len(features_df.iloc[0,:])):
+    axs.ravel()[i].axvline(rec_feat.iloc[0,i+2],color='green',label='Original Track')
     sns.kdeplot(ax=axs.ravel()[i],data=rec_feat.iloc[:,i+2],label='Recommendations')
     sns.kdeplot(ax=axs.ravel()[i],data=features_df.iloc[:,i],label='All Songs')
     axs.ravel()[i].set_title(features_df.columns[i])
+    axs.ravel()[i].legend()
 ```
 
 
 
-![png](Spotify_03_files/Spotify_03_31_0.png)
+![png](spotify-eda_files/spotify-eda_33_0.png)
 
