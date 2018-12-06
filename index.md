@@ -1,5 +1,5 @@
 ---
-title: Spotify Project 12-5
+title: Spotify Project Homepage
 notebook: index.md
 nav_include: 1
 ---
