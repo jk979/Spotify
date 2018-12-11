@@ -16,7 +16,7 @@ For validation, we grappled with the normative goals of our analysis, as we want
 [To be added]
 
 [Continue to EDA](./another-page.html).
-[Continue to Model](./another-page.html).
+[Continue to Model](./another-page2.html).
 
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
