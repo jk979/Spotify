@@ -4,11 +4,7 @@ layout: default
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-<<<<<<< HEAD
-[Link to EDA Page](./another_page.html).
-=======
-[Link to another page](./another-page.html).
->>>>>>> parent of 00bc793... changed summaries added eda
+[Link to another page](./another_page.html).
 
 There should be whitespace between paragraphs.
 
@@ -19,21 +15,17 @@ There should be whitespace between paragraphs. We recommend including a README, 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
 ## Summary
-<<<<<<< HEAD
 
 Content recommendation is one of the most active areas of contemporary data science research. Techniques broadly fall within two categories (with some hybrid approaches that combine the two): collaborative filtering and content-based recommendation. Generally, collaborative filtering utilizes data on existing users’ preferences to identify similar users or content, and then makes recommendations based on the similar content or on the content selected by similar users. Content-based recommendation, on the other hand, relies on the underlying features of the content, taking a hedonic approach to identifying content that a given user may enjoy.
-=======
->>>>>>> parent of 00bc793... changed summaries added eda
 
 
 
-<<<<<<< HEAD
 ## Literature Review
 
 [To be added]
+<<<<<<< HEAD
 =======
-### Literature Review
->>>>>>> parent of 00bc793... changed summaries added eda
+>>>>>>> parent of 96537ef... edited some text
 
 ```js
 // Javascript code with syntax highlighting.
