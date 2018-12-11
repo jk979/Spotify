@@ -14,14 +14,13 @@ Based on genre-based validation using a random subset of songs, the optimal valu
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|:------|
-| * All I Want for Christmas Is You |
-| * Santa Baby, Have Yourself A Merry Little Christmas - 1999 |
-| * Last Christmas, I've Got My Love To Keep Me Warm |
-| * White Christmas |
-| * It's Beginning to Look a Lot Like Christmas |
-| * Winter Wonderland |
-| * The Christmas Song (Merry Christmas To You) |
-| * Little Saint Nick           |
+| <ul><li>All I Want for Christmas Is You </li><li>Santa Baby, Have Yourself A Merry Little Christmas - 1999</li><li>Last Christmas, I've Got My Love To Keep Me Warm</li><li>White Christmas</li>
+<li>It's Beginning to Look a Lot Like Christmas</li>
+<li>Winter Wonderland</li>
+<li>The Christmas Song (Merry Christmas To You)</li>
+<li>Little Saint Nick</li></ul>| Recommended | 
+
+
 
 _yay_
 
