@@ -13,24 +13,11 @@ We began by constructing a number of difference collaborative filtering models. 
 Based on genre-based validation using a random subset of songs, the optimal value of k appeared to be 5, achieving a validation accuracy of 0.44. Note that given computational complexity, we chose relatively small validation sets, in this case a random sample equal to 5% of the total playlists. In addition, we also performed qualitative validation by looking at particularly distinctive playlists to best measure if the tool was successfully identifying songs based on intuition. For example, we found the following robust results based on a playlist of Spanish-language songs and a playlist of Christmas songs:
 
 | Previous Songs        | Recommended Songs |
-|:-------------|:------------------|:------|
-| <ul><li>All I Want for Christmas Is You </li><li>Santa Baby, Have Yourself A Merry Little Christmas - 1999</li><li>Last Christmas, I've Got My Love To Keep Me Warm</li><li>White Christmas</li>
-<li>It's Beginning to Look a Lot Like Christmas</li>
-<li>Winter Wonderland</li>
-<li>The Christmas Song (Merry Christmas To You)</li>
-<li>Little Saint Nick</li></ul>| Recommended |
+|:-------------|:------------------|
+| All I Want for Christmas Is You, Santa Baby, Have Yourself A Merry Little Christmas - 1999, Last Christmas, I've Got My Love To Keep Me Warm, White Christmas, It's Beginning to Look a Lot Like Christmas, Winter Wonderland, The Christmas Song (Merry Christmas To You), Little Saint Nick | All I Want for Christmas Is You, It's Beginning To Look A Lot Like Christmas, Holly Jolly Christmas, Have Yourself A Merry Little Christmas, Jingle Bells (feat. The Puppini Sisters), Christmas (Baby Please Come Home), Santa Baby, White Christmas (Duet With Shania Twain), I'll Be Home For Christmas, All I Want For Christmas Is You |
+| ![05](images/05-all-i-want.png) | ! [05] (images/06-buble.png) |
 
 
-
-    +---------------+---------------+--------------------+
-    | Fruit         | Price         | Advantages         |
-    +===============+===============+====================+
-    | Bananas       | $1.34         | - built-in wrapper |
-    |               |               | - bright color     |
-    +---------------+---------------+--------------------+
-    | Oranges       | $2.10         | - cures scurvy     |
-    |               |               | - tasty            |
-    +---------------+---------------+--------------------+
 
 
 
