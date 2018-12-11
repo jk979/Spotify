@@ -16,6 +16,8 @@ On a technical note, our current dataset allowed for us to search using both son
 #Noteworthy Findings on Song-Playlist Data Structure
 Our primary takeaway from our exploratory data analysis was the issue of sparsity in the data. When we began building models, most traditional classification approaches were not able to underperform the trivial strategy of always guessing a song will not be included in a given playlist. When the chances of a song being included in a given playlist are well below 1%, that is not a surprising result.
 
+![01](images/01-song-playlist-pairs.png)
+
 As a result, the most successful model we built using traditional classification methodologies was a neural network where we made artist recommendations based on the existing artists included in a given playlist. As shown in [Figure 1], considering artist-playlist pairs rather than song-playlist pairs significantly mitigates against the issue of sparsity in the dataset.
 
 We were also focused on understanding the breakdown of playlist length in order to understand to what extent we would be addressing the “cold-start” problem in our dataset. The data was rather mixed, with some playlists in the range of over 250 songs, and the vast majority in the range of 25-50 songs. The density of song length per playlist is shown in [Figure 2].
