@@ -85,12 +85,14 @@ We proceeded to experiment with an artist-playlist neural net, which as discusse
 The results significantly improved by analyzing artists. In this case our predictor function recommends a series of artists based on which artists are included in a given playlist. Based on the artists’ genre, the validation score achieved was 0.37. Example recommendations are shown below.
 
 **Playlist-Song**
+
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
 | Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty)|
 | ![18](images/18-magno.png) | ![19](images/19-ispy.png) |
 
 **Playlist-Artist**
+
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
 | Jake Owen, Dierks Bentley, Blake Shelton, George Strait, Little Big Town, Chris Young | Dustin Lynch, Cole Swindell, Jon Pardi, Chris Stapleton, Eli Young Band, Craig Morgan, Dan + Shay |
