@@ -18,7 +18,21 @@ Based on genre-based validation using a random subset of songs, the optimal valu
 <li>It's Beginning to Look a Lot Like Christmas</li>
 <li>Winter Wonderland</li>
 <li>The Christmas Song (Merry Christmas To You)</li>
-<li>Little Saint Nick</li></ul>| Recommended | 
+<li>Little Saint Nick</li></ul>| Recommended |
+
+
+
+    +---------------+---------------+--------------------+
+    | Fruit         | Price         | Advantages         |
+    +===============+===============+====================+
+    | Bananas       | $1.34         | - built-in wrapper |
+    |               |               | - bright color     |
+    +---------------+---------------+--------------------+
+    | Oranges       | $2.10         | - cures scurvy     |
+    |               |               | - tasty            |
+    +---------------+---------------+--------------------+
+
+
 
 
 
