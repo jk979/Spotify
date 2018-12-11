@@ -94,7 +94,7 @@ end
 
 ### Small image
 
-![Octocat](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
+![Octocat](images/spotify-eda_8_1.png)
 
 ### Large image
 
