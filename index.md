@@ -3,10 +3,12 @@ title: Spotify Project Homepage
 notebook: index.md
 nav_include: 0
 ---
+
 Team: Apaar Bansal, Jacob Kohn, Alan Sage (Group No. 58)
 TF: Yujiao Chen
 
-##Introduction
+#Introduction
+
 **Summary**
 Content recommendation is one of the most active areas of contemporary data science research. Techniques broadly fall within two categories (with some hybrid approaches that combine the two): collaborative filtering and content-based recommendation. Generally, collaborative filtering utilizes data on existing users’ preferences to identify similar users or content, and then makes recommendations based on the similar content or on the content selected by similar users. Content-based recommendation, on the other hand, relies on the underlying features of the content, taking a hedonic approach to identifying content that a given user may enjoy.
 
