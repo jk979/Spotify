@@ -12,12 +12,16 @@ We began by constructing a number of difference collaborative filtering models. 
 
 Based on genre-based validation using a random subset of songs, the optimal value of k appeared to be 5, achieving a validation accuracy of 0.44. Note that given computational complexity, we chose relatively small validation sets, in this case a random sample equal to 5% of the total playlists. In addition, we also performed qualitative validation by looking at particularly distinctive playlists to best measure if the tool was successfully identifying songs based on intuition. For example, we found the following robust results based on a playlist of Spanish-language songs and a playlist of Christmas songs:
 
-| head1        | head two          | three |
+| Previous Songs        | Recommended Songs |
 |:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+| * All I Want for Christmas Is You |
+| * Santa Baby, Have Yourself A Merry Little Christmas - 1999 |
+| * Last Christmas, I've Got My Love To Keep Me Warm |
+| * White Christmas |
+| * It's Beginning to Look a Lot Like Christmas |
+| * Winter Wonderland |
+| * The Christmas Song (Merry Christmas To You) |
+| * Little Saint Nick           |
 
 _yay_
 
