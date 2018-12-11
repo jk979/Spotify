@@ -12,11 +12,14 @@ We began by constructing a number of difference collaborative filtering models. 
 
 Based on genre-based validation using a random subset of songs, the optimal value of k appeared to be 5, achieving a validation accuracy of 0.44. Note that given computational complexity, we chose relatively small validation sets, in this case a random sample equal to 5% of the total playlists. In addition, we also performed qualitative validation by looking at particularly distinctive playlists to best measure if the tool was successfully identifying songs based on intuition. For example, we found the following robust results based on a playlist of Spanish-language songs and a playlist of Christmas songs:
 
+**Christmas Songs**
+
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
 | All I Want for Christmas Is You, Santa Baby, Have Yourself A Merry Little Christmas - 1999, Last Christmas, I've Got My Love To Keep Me Warm, White Christmas, It's Beginning to Look a Lot Like Christmas, Winter Wonderland, The Christmas Song (Merry Christmas To You), Little Saint Nick | All I Want for Christmas Is You, It's Beginning To Look A Lot Like Christmas, Holly Jolly Christmas, Have Yourself A Merry Little Christmas, Jingle Bells (feat. The Puppini Sisters), Christmas (Baby Please Come Home), Santa Baby, White Christmas (Duet With Shania Twain), I'll Be Home For Christmas, All I Want For Christmas Is You |
 | ![05](images/05-all-i-want.png) | ![06](images/06-buble.png) |
 
+**Spanish-Language Songs**
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
@@ -34,17 +37,17 @@ The Pearson coefficient methodology was generally effective based on genre valid
 A qualitative example demonstrating the capabilities of each recommender is included below for reference:
 
 **Song-Song**
+
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| Down, Hard to Handle, Broadway, Two Princes, Hooch, Slide, All Over You, Good, Rooster | Hey Man Nice Shot, You’re the World to Me, Morning Light, On the Way Home, Cherry Bomb, Fairlane (Live), You and I Both - Eagles Ballroom Live Version, Celebrate Good Times (Come On), Easy, Broadway
- |
+| Down, Hard to Handle, Broadway, Two Princes, Hooch, Slide, All Over You, Good, Rooster | Hey Man Nice Shot, You’re the World to Me, Morning Light, On the Way Home, Cherry Bomb, Fairlane (Live), You and I Both - Eagles Ballroom Live Version, Celebrate Good Times (Come On), Easy, Broadway |
 | ![09](images/09-alice.png) | ![10](images/10-demon.png) |
 
 **Playlist-Playlist**
+
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| The House That Built Me, John Cougar John Deere John 3:16, Only Prettier, Springsteen, White Liar, Staring at the Sun, Fast Cars and Freedom, Sippin’ On Fire, Laughed Until We Cried, Feels Like Today | Dirt Road, Dirt, 5-1-5-0, Boondocks, We Danced, Remind Me - Duet with Brad Paisley, Baby Be My Love Song, Don’t You Wanna Stay, Somethin’ Bout a Truck, I Got a Car
- |
+| The House That Built Me, John Cougar John Deere John 3:16, Only Prettier, Springsteen, White Liar, Staring at the Sun, Fast Cars and Freedom, Sippin’ On Fire, Laughed Until We Cried, Feels Like Today | Dirt Road, Dirt, 5-1-5-0, Boondocks, We Danced, Remind Me - Duet with Brad Paisley, Baby Be My Love Song, Don’t You Wanna Stay, Somethin’ Bout a Truck, I Got a Car |
 | ![11](images/11-rascal.png) | ![12](images/12-kip.png) |
 
 ## K Nearest Neighbors Cosine Distance (Song-Song and Playlist-Playlist)
@@ -52,6 +55,7 @@ A qualitative example demonstrating the capabilities of each recommender is incl
 Subsequently, we implemented a kNN algorithm as well, a similar type of distance-based algorithm, using cosine distance. We utilized cosine distance between different inputs based on precedent in the literature. Again, an item-item recommendation approach was utilized initially, finding the nearest neighbors to a given song based on how many of the same playlists they both appeared in. Subsequently, we expanded to a playlist-playlist based approach, finding similarities between given playlists based on which songs they both included, and then recommending songs from the similar playlists.
 
 **Song-Song**
+
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
 | Jasmine Runs Away, Magic Carpet/Parting The Seas, Who Better Than Me - Broadway Cast Recording, The Gospel Truth II, Beyond My Wildest Dreams - Broadway Cast Recording, The Ends of the Earth, If Only (Quarter) - Broadway Cast Recording, Main Title - The Little Mermaid, Aladdin and Cassim Escape, I Want the Good Times Back | Beauty And The Beast (Reprise), Overture, One Jump Ahead (Reprise)
@@ -59,10 +63,10 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
 | ![13](images/13-aladdin.png) | ![14](images/14-beauty.png) |
 
 **Playlist-Playlist**
+
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| Lookin Boy - Main Version, Do Ya Head Like This, Scenario - LP Mix, It’s Goin’ Down (feat. Nitti), Beautiful Girls, Sexy Can I feat. Yung Berg, Look At Me Now, SexyBack, Soul Survivor, Gin and Juice | Gold Digger, Ignition - Remix, Buy U a Drank (Shawty Snappin’), It Wasn’t Me, Tipsy - Club Mix, Yeah!, Kiss Me Thru The Phone, Get Low - Street, In Da Club, Hot In Herre
- |
+| Lookin Boy - Main Version, Do Ya Head Like This, Scenario - LP Mix, It’s Goin’ Down (feat. Nitti), Beautiful Girls, Sexy Can I feat. Yung Berg, Look At Me Now, SexyBack, Soul Survivor, Gin and Juice | Gold Digger, Ignition - Remix, Buy U a Drank (Shawty Snappin’), It Wasn’t Me, Tipsy - Club Mix, Yeah!, Kiss Me Thru The Phone, Get Low - Street, In Da Club, Hot In Herre |
 | ![15](images/15-ray.png) | ![16](images/16-nelly.png) |
 
 ## Neural Networks (Song-Song and Playlist-Playlist)
@@ -84,15 +88,13 @@ The results significantly improved by analyzing artists. In this case our predic
 **Playlist-Song**
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty)
- |
+| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty) |
 | ![18](images/18-magno.png) | ![19](images/19-ispy.png) |
 
 **Playlist-Artist**
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Jake Owen, Dierks Bentley, Blake Shelton, George Strait, Little Big Town, Chris Young | Dustin Lynch, Cole Swindell, Jon Pardi, Chris Stapleton, Eli Young Band, Craig Morgan, Dan + Shay
- |
+| Jake Owen, Dierks Bentley, Blake Shelton, George Strait, Little Big Town, Chris Young | Dustin Lynch, Cole Swindell, Jon Pardi, Chris Stapleton, Eli Young Band, Craig Morgan, Dan + Shay |
 | ![20](images/20-blake.png) | ![21](images/21-cole.png) |
 
 ## Content-Based Pearson Correlation
@@ -102,8 +104,7 @@ We next moved into constructing a series of models based on audio feature metada
 
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Juke Box Hero, Holiday/Boulevard of Broken Dreams, Girlfriend (German Version), I Don’t Want to Miss a Thing, How You Remind Me, Bad Day, Slide, Hanging By a Moment, Rape Me, Chasing Cars | Can’t Stop, Big Yellow Taxi, First Date, Paris (Ooh La La), Hey Baby, I’m Going Free (Jailbreak), Say I’m Wrong, Ride, One World feat. Siti Monroe, Beautiful Day
- |
+| Juke Box Hero, Holiday/Boulevard of Broken Dreams, Girlfriend (German Version), I Don’t Want to Miss a Thing, How You Remind Me, Bad Day, Slide, Hanging By a Moment, Rape Me, Chasing Cars | Can’t Stop, Big Yellow Taxi, First Date, Paris (Ooh La La), Hey Baby, I’m Going Free (Jailbreak), Say I’m Wrong, Ride, One World feat. Siti Monroe, Beautiful Day |
 | ![23](images/23-lifehouse.png) | ![24](images/24-joni.png) |
 
 ## Content-Based Classification Tree with Boosting
@@ -117,8 +118,7 @@ Overall, this model performed poorly. By plotting a training set and test set pe
 
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| No Hands, That’s What I Like, Mask Off, Rolex, No Problem, 2 Phones | Say It, Trap Queen
- |
+| No Hands, That’s What I Like, Mask Off, Rolex, No Problem, 2 Phones | Say It, Trap Queen |
 | ![27](images/27-rolex.png) | ![28](images/28-trap.png) |
 
 ## Lyrics Text-Based Pearson Correlation
