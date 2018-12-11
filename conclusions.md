@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Conclusions and preferences
+# Conclusions and References
 
 ## Future Expansions
 While we tested a wide variety of models, we have by no means completed an exhaustive analysis of the various approaches discussed in the literature regarding collaborative-filtering and content recommendation techniques. Many of these techniques are, however, related to the ones we did test out. For example, Bauckhage (2015) showed that k-Means Clustering can be specified as a type of matrix factorization problem as well. There are in addition numerous methodologies for distance-based recommendation, of which we tested only a sample. Experimenting with these similar methodologies could represent a way to improve our results at the margins.
