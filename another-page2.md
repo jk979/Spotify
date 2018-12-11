@@ -58,8 +58,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| Jasmine Runs Away, Magic Carpet/Parting The Seas, Who Better Than Me - Broadway Cast Recording, The Gospel Truth II, Beyond My Wildest Dreams - Broadway Cast Recording, The Ends of the Earth, If Only (Quarter) - Broadway Cast Recording, Main Title - The Little Mermaid, Aladdin and Cassim Escape, I Want the Good Times Back | Beauty And The Beast (Reprise), Overture, One Jump Ahead (Reprise)
- |
+| Jasmine Runs Away, Magic Carpet/Parting The Seas, Who Better Than Me - Broadway Cast Recording, The Gospel Truth II, Beyond My Wildest Dreams - Broadway Cast Recording, The Ends of the Earth, If Only (Quarter) - Broadway Cast Recording, Main Title - The Little Mermaid, Aladdin and Cassim Escape, I Want the Good Times Back | Beauty And The Beast (Reprise), Overture, One Jump Ahead (Reprise)|
 | ![13](images/13-aladdin.png) | ![14](images/14-beauty.png) |
 
 **Playlist-Playlist**
@@ -88,7 +87,7 @@ The results significantly improved by analyzing artists. In this case our predic
 **Playlist-Song**
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty) |
+| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty)|
 | ![18](images/18-magno.png) | ![19](images/19-ispy.png) |
 
 **Playlist-Artist**
