@@ -2,8 +2,8 @@
 layout: default
 ---
 
-## Welcome to another page
+## EDA
 
-_yay_
 
-[back](./)
+
+[back to Homepage](./)
