@@ -10,7 +10,7 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-# Introduction
+## Introduction
 
 Introduction sentence here.
 
@@ -23,7 +23,7 @@ We experimented with both collaborative filtering and content-based techniques, 
 
 For validation, we grappled with the normative goals of our analysis, as we want to present users with songs they are likely to enjoy, but not merely the same artists and songs they are already listening to. We settled on genre-based validation, although this technique was not perfect, as Spotify provides genre data at a granular level that sometimes creates effective false negatives. Overall, through the more robust models we were able to consistently achieve cross-validation scores in the range of 0.4-0.5 based on the mode of recommended songs’ genre being equal to the mode of existing songs’ genres.
 
-### Literature Review
+## Literature Review
 [To be added]
 
 ```js
