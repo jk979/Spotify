@@ -4,7 +4,7 @@ notebook: index.md
 nav_include: 0
 ---
 
-Team: Apaar Bansal, Jacob Kohn, Alan Sage (Group No. 58)<br/>
+Team: Apaar Bansal, Jacob Kohn, Alan Sage (Group No. 58)  
 TF: Yujiao Chen
 
 #Introduction
