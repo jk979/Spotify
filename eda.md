@@ -4,6 +4,15 @@ layout: default
 
 # EDA and Background
 
+Links to CSVs:
+[Artist Genres](https://drive.google.com/file/d/1ueUMpPDVFPS7Er8Mq9-IqRHMJ2avSqCG/view)
+[Track Features](https://drive.google.com/file/d/1OiJ7NGIXmrWXXBNaYoIrPgkMOI2wEDfw/view)
+[Tracks/Lyrics](https://drive.google.com/file/d/1l0rTqWhIfQw4Hv8KRySvL6A6mkE2PRIz/view)
+<!--<a href="https://drive.google.com/file/d/1ueUMpPDVFPS7Er8Mq9-IqRHMJ2avSqCG/view" class="btn">CSV (Artist Genres)</a>
+<a href="https://drive.google.com/file/d/1OiJ7NGIXmrWXXBNaYoIrPgkMOI2wEDfw/view" class="btn">CSV (Track Features)</a>
+<a href="https://drive.google.com/file/d/1l0rTqWhIfQw4Hv8KRySvL6A6mkE2PRIz/view" class="btn">CSV (Tracks/Lyrics)</a>
+-->
+
 ## Data Processing
 We began by loading in the playlist datasets and creating various functions to generate a matrix with a line for each song play including its playlist ID. Specifically, we took a sample of 2,000 playlists, representing over 57,000 unique songs. Based on the qualitative findings which we discuss in the Model section, this sample proved satisfactory for generating predictions using many of our selected methodologies. Note that throughout this website, we use the terms “playlist” and “user” interchangeably at times, as without data on how many playlists were created by the same user, the playlist ID takes the role of the user ID in other collaborative filtering contexts.
 
