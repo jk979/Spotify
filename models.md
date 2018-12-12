@@ -149,7 +149,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
         print("Previous Picks:",existing_join.track_name[0:show_previous])
         print("Recommended Songs",output_res.track_name)
     return output_res
-```
+    ```
 
 ```def predict_knnuu(pid,tracks_frame,unique_tracks,num_recommendations=10,show_previous=10,num_playlists=3,verbose=True):
     existing_songs = pd.DataFrame(tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:]==1])
@@ -170,7 +170,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
         print("Previous Picks (sample):",existing_join.track_name[0:show_previous])
         print("Recommended Songs",rec_join.track_name)
     return rec_join
-```
+    ```
 
 *Note:  Our recommender system removes exact duplicates from recommendations, but can recommend multiple songs of the same name if have different URIs (meaning if they appear in different albums or are sung by different artists) For presentation here, we have included only the unique song titles.*
 
