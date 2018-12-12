@@ -17,31 +17,39 @@ For validation, we grappled with the normative goals of our analysis, as we want
 
 Before trying various data extraction and modeling techniques, we looked at what existing literature exists on using these techniques for recommendation systems, may they be for music, books, movies, or anything else. We also tried to see if existing literature supports our own findings.
 
-### SVD Matrix Factorization
-C. Bacukhage. “k-Means Clustering is Matrix Factorization.” Arxiv, 2015.
-N. Becker. Matrix factorization for movie recommendations in Python. Personal blog, https://beckernick.github.io/music_recommender/
-M. Gormley. Matrix factorization and collaborative filtering [Powerpoint slides]. Retrieved from https://www.cs.cmu.edu/~mgormley/courses/10601-s17/slides/lecture25-mf.pdf
-
 ### Collaborative Filtering
-P. Parhi, A. Pal and M. Aggarwal. A survey of methods of collaborative filtering techniques. International Conference on Inventive Systems and Control, 2017.
-X. Su and T.M. Khoshgoftaar. A survey of collaborative filtering techniques. Advances in Artificial Intelligence, 2009.
-N. Becker. Music recommendations with collaborative filtering and cosine distance. Personal blog, https://beckernick.github.io/music_recommender/
-M.A. Hameed, O.A. Jadaan and S. Ramachandram. Collaborative filtering based recommendation: a survey. International Journal of Computer Science and Engineering, 4(5): 859-876, 2012.
+- P. Parhi, A. Pal and M. Aggarwal. A survey of methods of collaborative filtering techniques. International Conference on Inventive Systems and Control, 2017.
+- X. Su and T.M. Khoshgoftaar. A survey of collaborative filtering techniques. Advances in Artificial Intelligence, 2009.
+- N. Becker. Music recommendations with collaborative filtering and cosine distance. Personal blog, https://beckernick.github.io/music_recommender/
+- M.A. Hameed, O.A. Jadaan and S. Ramachandram. Collaborative filtering based recommendation: a survey. International Journal of Computer Science and Engineering, 4(5): 859-876, 2012.
+
+The above papers describe the use of collaborative filtering to develop recommendation systems. Becker describes two types of collaborative filtering: user based and item based, where the former is recommending based on the preferences of other people similar to me and the latter is recommending based on other other people who share the same items as me. For this project, item based collaborative filtering was used as we did not know anything about the individual users.
+
+Su and Khoshgoftaar (2009) identify the following hurdles for collaborative filtering: data sparsity, scalability, synonymy, gray sheep, shilling attacks, and privacy protection. They also weigh the pros and cons of content-based and collaborative filtering, and while it is widely understood that collaborative filtering is a better method, hybrid methods between content-based and collaborative filtering sometimes perform better than purely collaborative filtering techniques. They also go into further detail of the different ways to approach collaborative filtering. Parhi et. al (2017) and Hameed et. al (2012) similarly give overviews of different collaborative filtering techniques and a mathematical justification for them, which is less relevant to us for the purposes for this project.
+
+### Matrix Factorization
+- M. Gormley. Matrix factorization and collaborative filtering [Powerpoint slides]. Retrieved from https://www.cs.cmu.edu/~mgormley/courses/10601-s17/slides/lecture25-mf.pdf
+- C. Bacukhage. “k-Means Clustering is Matrix Factorization.” Arxiv, 2015.
+
+The above two works talk about matrix factorization as a type of collaborative filtering. Collaborative filtering takes common interests between two parties A and B, and if they share many commonalities then the assumption is that other items B likes A may also like. This is essentially what matrix factorization does in that it looks at how the matrix of preferences of a person A can be expressed as factors of other preference matrices that may exist among other members of the population. Gormely (2017) lists three types of matrix factorization: Unconstrained, Single Value Decomposition, and Non-Negative matrix factorization. Bacukhage (2015) shows that the constrained matrix factorization problem is really a k-Means clustering problem, and this is a technique we have learned in class.
 
 ### kNN
-S. Li. How did we build book recommender systems in an hour part 2 - k nearest neighbors and matrix factorization. Towards Data Science, Medium, 2018, https://towardsdatascience.com/how-did-we-build-book-recommender-systems-in-an-hour-part-2-k-nearest-neighbors-and-matrix-c04b3c2ef55c
+- S. Li. How did we build book recommender systems in an hour part 2 - k nearest neighbors and matrix factorization. Towards Data Science, Medium, 2018, https://towardsdatascience.com/how-did-we-build-book-recommender-systems-in-an-hour-part-2-k-nearest-neighbors-and-matrix-c04b3c2ef55c
 
+Li (2018) demonstrates how to use k-nearest neighbors (kNN) to produce book recommendations. One important data preprocessing they do is filter the data only to popular books, or those that have been rated many times, in order to gain some sort of statistical significance. This was indeed an issue we faced with the million playlists dataset, in that there were many obscure songs that hardly showed up in other playlists, making collaborative filtering difficult. They use sklearn’s metric attribute and set it to “cosine” as the distance measure based on which the nearest neighbors are determined.
 
 ### Neural Networks
-N. Batra. Neural networks for collaborative filtering. Personal blog, https://nipunbatra.github.io/blog/2017/neural-collaborative-filtering.html
-X. He, L. Liao, H. Zhang, L. Nie, X. Hu and T. Chua. Neural collaborative filtering. International World Wide WEb Conference Committee, 2017.
-K. Hsu, S. Chou, Y. Yang and T. Chi. Neural network based next-song recommendation. Arxiv, 2016.
-S. Huang. Introduction to recommender system part 2: neural network approach. Towards Data Science, Medium, 2018, https://towardsdatascience.com/introduction-to-recommender-system-part-2-adoption-of-neural-network-831972c4cbf7
+- N. Batra. Neural networks for collaborative filtering. Personal blog, https://nipunbatra.github.io/blog/2017/neural-collaborative-filtering.html
+- X. He, L. Liao, H. Zhang, L. Nie, X. Hu and T. Chua. Neural collaborative filtering. International World Wide WEb Conference Committee, 2017.
+- K. Hsu, S. Chou, Y. Yang and T. Chi. Neural network based next-song recommendation. Arxiv, 2016.
+- S. Huang. Introduction to recommender system part 2: neural network approach. Towards Data Science, Medium, 2018, https://towardsdatascience.com/introduction-to-recommender-system-part-2-adoption-of-neural-network-831972c4cbf7
+
 
 ### Content-based
-L.M. de Campos, J.M. Fernandez-Luna, J.F. Huete and M.A. Rueda-Morales. Combining content-based and collaborative recommendations: a hybrid approach based on Bayesian networks. International Journal of Approximate Reasoning, 51(7): 785-799, 2010.
+- L.M. de Campos, J.M. Fernandez-Luna, J.F. Huete and M.A. Rueda-Morales. Combining content-based and collaborative recommendations: a hybrid approach based on Bayesian networks. International Journal of Approximate Reasoning, 51(7): 785-799, 2010.
 
 ### Lyrics-based
+
 
 
 [EDA](./eda.html).
