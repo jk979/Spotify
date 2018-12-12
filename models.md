@@ -125,7 +125,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
 
 ```
 def predict_knnss(pid,tracks_frame,unique_tracks,num_recommendations=10,show_previous=10,n_sample=5,per_song=5,verbose=True):
-existing_songs = pd.DataFrame(tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:]==1])
+    existing_songs = pd.DataFrame(tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:]==1])
     existing_join = pd.merge(existing_songs,unique_tracks,how='left',left_on=existing_songs.index,right_on='track_uri')
     tracks_transpose = tracks_frame.transpose()
     model_knn = NearestNeighbors(metric = 'cosine',algorithm = 'brute')
