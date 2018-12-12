@@ -55,6 +55,4 @@ To add further complexity to our models, we analyzed the lyrics of the songs. Fi
 ![03](images/032-nlp.png)  
 *Figure 4*
 
-_yay_
-
-[back](./)
+[Introduction](./index.md) | EDA | [Models](./models.html) | [Conclusions and References](./conclusions.html)

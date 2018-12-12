@@ -52,6 +52,4 @@ The above papers describe the neural network approach to collaborative filtering
 Campos et al. (2010) presents a Bayesian approach to combining content-based and collaborative features into a recommender system. It uses probabilistic reasoning to compute probability distribution over IMDB movie ratings. Overall, they found that the hybrid approach performed better than either of the two approaches separately.
 
 
-[EDA](./eda.html).
-[Models](./models.html).
-[Conclusions and References](./conclusions.html).
+Introduction | [EDA](./eda.html) | [Models](./models.html) | [Conclusions and References](./conclusions.html)

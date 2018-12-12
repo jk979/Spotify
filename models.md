@@ -383,6 +383,4 @@ Overall, based on qualitative analysis of the playlist and performance using cro
 ![29](images/29-cv.png)  
 *Figure 6*
 
-[Intro](./)
-[EDA](./eda.md)
-[Conclusions](./conclusions.md)
+[Introduction](./index.md) | [EDA](./eda.md) | Models | [Conclusions and References](./conclusions.html)

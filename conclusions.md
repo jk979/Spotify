@@ -13,6 +13,7 @@ In the future our work could be expanded by a project to analyze stacking techni
 More broadly, we considered validation to be a significant challenge here because our data essentially conflates missing values with negative values. That is, we cannot differentiate between a song which the user actively saw but chose not to play and songs which the user would like to play but was not aware of. This differentiates our specific problem from others discussed in the literature within the context of movie recommendations, where users rank movies on a scale from 1 to 5. In order to achieve a similar approach here, we would need to conduct field testing with our proposed methodologies so that we could collect data on when users are recommended a specific song but choose not to play it, a better proxy metric for dislike. We also could benefit from more robust genre validation data in the future, as given the sparsity of the genre data, it is likely that our validation scores understate the performance of some of our models.
 
 ## References
+
 C. Bacukhage. “k-Means Clustering is Matrix Factorization.” Arxiv, 2015.
 
 N. Batra. Neural networks for collaborative filtering. Personal blog, https://nipunbatra.github.io/blog/2017/neural-collaborative-filtering.html
@@ -39,6 +40,4 @@ P. Parhi, A. Pal and M. Aggarwal. A survey of methods of collaborative filtering
 
 X. Su and T.M. Khoshgoftaar. A survey of collaborative filtering techniques. Advances in Artificial Intelligence, 2009.
 
-[Intro](./)
-[EDA](./eda.md)
-[Models](./models.md)
+[Introduction](./index.md) | [EDA](./eda.md) | [Models](./models.html) | Conclusions and References
