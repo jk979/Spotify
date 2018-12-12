@@ -5,9 +5,9 @@ layout: default
 # EDA and Background
 
 Links to CSVs:
-[Artist Genres](https://drive.google.com/file/d/1ueUMpPDVFPS7Er8Mq9-IqRHMJ2avSqCG/view)
-[Track Features](https://drive.google.com/file/d/1OiJ7NGIXmrWXXBNaYoIrPgkMOI2wEDfw/view)
-[Tracks/Lyrics](https://drive.google.com/file/d/1l0rTqWhIfQw4Hv8KRySvL6A6mkE2PRIz/view)
+[Artist Genres](https://drive.google.com/file/d/1ueUMpPDVFPS7Er8Mq9-IqRHMJ2avSqCG/view) |
+[Track Features](https://drive.google.com/file/d/1OiJ7NGIXmrWXXBNaYoIrPgkMOI2wEDfw/view) |
+[Tracks/Lyrics](https://drive.google.com/file/d/1l0rTqWhIfQw4Hv8KRySvL6A6mkE2PRIz/view) | 
 <!--<a href="https://drive.google.com/file/d/1ueUMpPDVFPS7Er8Mq9-IqRHMJ2avSqCG/view" class="btn">CSV (Artist Genres)</a>
 <a href="https://drive.google.com/file/d/1OiJ7NGIXmrWXXBNaYoIrPgkMOI2wEDfw/view" class="btn">CSV (Track Features)</a>
 <a href="https://drive.google.com/file/d/1l0rTqWhIfQw4Hv8KRySvL6A6mkE2PRIz/view" class="btn">CSV (Tracks/Lyrics)</a>
