@@ -25,7 +25,7 @@ Before trying various data extraction and modeling techniques, we looked at what
 
 The above papers describe the use of collaborative filtering to develop recommendation systems. Becker describes two types of collaborative filtering: user based and item based, where the former is recommending based on the preferences of other people similar to me and the latter is recommending based on other other people who share the same items as me. For this project, item based collaborative filtering was used as we did not know anything about the individual users.
 
-Su and Khoshgoftaar (2009) identify the following hurdles for collaborative filtering: data sparsity, scalability, synonymy, gray sheep, shilling attacks, and privacy protection. They also weigh the pros and cons of content-based and collaborative filtering, and while it is widely understood that collaborative filtering is a better method, hybrid methods between content-based and collaborative filtering sometimes perform better than purely collaborative filtering techniques. They also go into further detail of the different ways to approach collaborative filtering. Parhi et. al (2017) and Hameed et. al (2012) similarly give overviews of different collaborative filtering techniques and a mathematical justification for them, which is less relevant to us for the purposes for this project.
+Su and Khoshgoftaar (2009) identify the following hurdles for collaborative filtering: data sparsity, scalability, synonymy, gray sheep, shilling attacks, and privacy protection. They also weigh the pros and cons of content-based and collaborative filtering, and while it is widely understood that collaborative filtering is a better method, hybrid methods between content-based and collaborative filtering sometimes perform better than purely collaborative filtering techniques. They also go into further detail of the different ways to approach collaborative filtering. Parhi et al. (2017) and Hameed et al. (2012) similarly give overviews of different collaborative filtering techniques and a mathematical justification for them, which is less relevant to us for the purposes for this project.
 
 ### Matrix Factorization
 - M. Gormley. Matrix factorization and collaborative filtering [Powerpoint slides]. Retrieved from https://www.cs.cmu.edu/~mgormley/courses/10601-s17/slides/lecture25-mf.pdf
@@ -44,11 +44,13 @@ Li (2018) demonstrates how to use k-nearest neighbors (kNN) to produce book reco
 - K. Hsu, S. Chou, Y. Yang and T. Chi. Neural network based next-song recommendation. Arxiv, 2016.
 - S. Huang. Introduction to recommender system part 2: neural network approach. Towards Data Science, Medium, 2018, https://towardsdatascience.com/introduction-to-recommender-system-part-2-adoption-of-neural-network-831972c4cbf7
 
+The above papers describe the neural network approach to collaborative filtering and its applications to recommender systems. Batra (2017) presents the neural network architecture discussed in He et al. (2017), and also shows the Python implementation of such architectures. Hse et al. (2016) proposes a neural network framework for song recommender systems in particular, and claims to be the first paper to do so. Huang (2018) explores some neural network implementation, but finds that SVD factorization performs quite well.
 
 ### Content-based
 - L.M. de Campos, J.M. Fernandez-Luna, J.F. Huete and M.A. Rueda-Morales. Combining content-based and collaborative recommendations: a hybrid approach based on Bayesian networks. International Journal of Approximate Reasoning, 51(7): 785-799, 2010.
 
-### Lyrics-based
+Campos et al. (2010) presents a Bayesian approach to combining content-based and collaborative features into a recommender system. It uses probabilistic reasoning to compute probability distribution over IMDB movie ratings. Overall, they found that the hybrid approach performed better than either of the two approaches separately.
+
 
 
 
