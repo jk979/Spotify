@@ -39,4 +39,6 @@ P. Parhi, A. Pal and M. Aggarwal. A survey of methods of collaborative filtering
 
 X. Su and T.M. Khoshgoftaar. A survey of collaborative filtering techniques. Advances in Artificial Intelligence, 2009.
 
-[back](./)
+[Intro](./)
+[EDA](./eda.md)
+[Models](./models.md)
