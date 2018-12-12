@@ -111,6 +111,8 @@ We next moved into constructing a series of models based on audio feature metada
 ## Content-Based Classification Tree with Boosting
 We next explored a classification tree structure for classifying data based on content. Specifically, for every playlist, we calculated the average value for each metadata feature across the playlist. We then calculated the differences for each song relative to the playlist data. The distribution of playlist averages and song-specific values are shown in [Figure 7], for the most part indicating the centering effect we would expect for the playlist averages. The theory behind our model was that a song whose features are closer to the playlist averages would be more likely to be included in a given playlist.
 
+![25](images/25_1_boosting.png)
+
 Based on this data, we trained a classification tree to predict if a song would be included in a given playlist given the feature distance from the average. Any songs which had not previously been included but for which the tree predicted a positive binary value of 1 would then be suggested for inclusion. We utilized a boosting approach implemented through AdaBoost with 250 predictors.
 
 ![26](images/26-trainingtest.png)
@@ -123,8 +125,14 @@ Overall, this model performed poorly. By plotting a training set and test set pe
 | ![27](images/27-rolex.png) | ![28](images/28-trap.png) |
 
 ## Lyrics Text-Based Pearson Correlation
-We next expanded upon our analysis by incorporating the results of our NLP data into our existing content-based distance model.
-[To Be Added]
+We next expanded upon our analysis by incorporating the results of our NLP data into our existing content-based distance model. We built upon the existing audio metadata and added an additional feature for the Compound metrics, which captures the positivity, negativity, and neutrality of the lyrics of a given song. Of the entire sample, we were able to successfully pull lyrics for approximately 18,000 songs, which defined the subset for this model.
+
+The addition of the compound feature did not appear to improve the results when making recommendations based on the Pearson correlation coefficient. During cross-validation, the model achieved a score of only 0.06. Again, because of computational time for calculating distances, it was necessary to utilize a small sample size for cross-validation. Sample qualitative recommendation results are provided.
+
+| Previous Songs        | Recommended Songs |
+|:-------------|:------------------|
+| Rather Be (feat. Jess Glynne), Summer, Uptown Funk, All About That Bass, Pompeii, Despacito (feat. Daddy Yankee), Wild Thoughts, Sugar (feat. Francesco Yates), Ain’t Nobody (Loves Me Better), Roses | Silvia, Watermelon Crawl, If You Leave, Cannibal, Dirt Road Anthem (feat. Brantley Gilbert), The Power of Love, Caribbean Queen (No More Love on the Run), We Supposed To Be, Walk On Water, U Da Realest |
+| ![30](images/30-mars.png) | ![31](images/31-ocean.png) |
 
 ## Model Comparison
 

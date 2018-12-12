@@ -17,10 +17,12 @@ On a technical note, our current dataset allowed for us to search using both son
 Our primary takeaway from our exploratory data analysis was the issue of sparsity in the data. When we began building models, most traditional classification approaches were not able to underperform the trivial strategy of always guessing a song will not be included in a given playlist. When the chances of a song being included in a given playlist are well below 1%, that is not a surprising result.
 
 ![01](images/01-song-playlist-pairs.png)
+*Figure 1*
 
 As a result, the most successful model we built using traditional classification methodologies was a neural network where we made artist recommendations based on the existing artists included in a given playlist. As shown in [Figure 1], considering artist-playlist pairs rather than song-playlist pairs significantly mitigates against the issue of sparsity in the dataset.
 
 ![02](images/02-dist-playlist-length.png)
+*Figure 2*
 
 We were also focused on understanding the breakdown of playlist length in order to understand to what extent we would be addressing the “cold-start” problem in our dataset. The data was rather mixed, with some playlists in the range of over 250 songs, and the vast majority in the range of 25-50 songs. The density of song length per playlist is shown in [Figure 2].
 
@@ -28,6 +30,7 @@ We were also focused on understanding the breakdown of playlist length in order 
 As mentioned above, we utilized a content-based recommender system based on metadata on audio features provided through Spotify’s API. Specifically, the features included acousticness, danceability, energy, liveness, loudness, speechiness, tempo, and valence. A 2-dimensional visualization of these features based on Principal Components Analysis (PCA) is provided for reference in [Figure 3]. Note that there is not the immediate appearance of multiple well-defined clusters, which may have partially explained why our content-based model approaches underperformed compared to collaborative filtering.
 
 ![03](images/03-viz-audio-features.png)
+*Figure 3*
 
 ## Genre Validation Data
 We spent considerable time discussing an appropriate validation strategy, given that our goal for a recommender system is not purely predictive. The sparsity of the data makes it highly unlikely that we would be able to successfully predict whether a given playlist includes a certain song. In fact, our goal is perhaps best defined as identifying the songs that would have been included in a playlist if the user were aware of them. Based on the data available, we cannot ascertain that a user does not like a certain song merely because it wasn’t included in the playlist.
@@ -35,8 +38,10 @@ We spent considerable time discussing an appropriate validation strategy, given 
 To this end, we felt validation based on artist genre, which we pulled through the Spotify API, was an appropriate mechanism to determine whether a recommender model is successfully identifying songs that would match a user’s preferences in a given playlist. Our goal was not to target very high validation success, as we do want to introduce some novelty into the potential playlist suggestions. In addition, it’s worth noting the relative sparsity of the genre data as well, as a large number of artists’ genres are not identified. The genre data is also highly specific, with a number of highly nuanced categories that might indicate a negative classification result when we perform validation, even if the two songs do fall under a broader genre (e.g. “acid jazz” and “nu jazz” are two separate categories for classification purposes). Many artists have more than one of these specific related genre included, so for simplification purposes, we included only the first genre listed.
 
 ## NLP Data
-[To be added]
-[Figure 4 - word bubble - to be added]
+To add further complexity to our models, we analyzed the lyrics of the songs. First, we called the lyrics of each song using lyricwikia, and removed songs for which we could not find lyrics. There were quite a few songs that this removed, such as instrumental, electronic and trance, and foreign language songs, but the purpose of this exercise was to look at features of the songs unveiled by the “sentiment” of the lyrics. To examine the sentiment, we used the Sentiment Intensity Analyzer from the Natural Language Toolkit (NLTK) Python package. This package allows us to take a set of strings (say, a sentence or a paragraph) and find the ‘polarity score’, or how much the strings skew towards a negative or positive sentiment. It does this by comparing the words in the string to a list of words that convey positive, negative, or neutral feelings. It is also smart enough to know the opposite meanings of “great” and “not great”, as a simple example. It also gives us an overall ‘compound’ score, which gives on a -1 (very negative) to +1 (very positive) scale the overall sentiment. To use this toolkit, we had to first ‘tokenize’ it using NLTK, or break down the lyrics into analyzable parts such as verses or paragraphs. We then run each of these subparts through the sentiment analyzer to get the scores for negativity, neutrality, positivity, and overall compound score. To get an overall score for each of these 4 metrics for the whole song, we weighted each score by the number of words that tokenized subpart made up out of all the words in the song. This method provides us a way to convert the lyrics into numerical features that can then be modeled. The distribution of positivity and negativity scores is visualized in Figure 4.
+
+![03](images/032-nlp.png)
+*Figure 4*
 
 _yay_
 
