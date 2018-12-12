@@ -40,14 +40,14 @@ A qualitative example demonstrating the capabilities of each recommender is incl
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| Down, Hard to Handle, Broadway, Two Princes, Hooch, Slide, All Over You, Good, Rooster | Hey Man Nice Shot, You’re the World to Me, Morning Light, On the Way Home, Cherry Bomb, Fairlane (Live), You and I Both - Eagles Ballroom Live Version, Celebrate Good Times (Come On), Easy, Broadway |
+| Down, Hard to Handle, Broadway, Two Princes, Hooch, Slide, All Over You, Good, Rooster | Jane Says, Longview, Sugarhigh, December, Broadway, Nice to Know You, Far Behind, Stellar - acoostic, Hooch, My Name Is Mud |
 | ![09](images/09-alice.png) | ![10](images/10-demon.png) |
 
 **Playlist-Playlist**
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| The House That Built Me, John Cougar John Deere John 3:16, Only Prettier, Springsteen, White Liar, Staring at the Sun, Fast Cars and Freedom, Sippin’ On Fire, Laughed Until We Cried, Feels Like Today | Dirt Road, Dirt, 5-1-5-0, Boondocks, We Danced, Remind Me - Duet with Brad Paisley, Baby Be My Love Song, Don’t You Wanna Stay, Somethin’ Bout a Truck, I Got a Car |
+| The House That Built Me, John Cougar John Deere John 3:16, Only Prettier, Springsteen, White Liar, Staring at the Sun, Fast Cars and Freedom, Sippin’ On Fire, Laughed Until We Cried, Feels Like Today | Dance, Dust, Cowboys and Angels, What We Ain’t Got, Aw Naw, Get Your Shine On, Play it Again, Dirt Road Anthem, Blown Away, Til It’s Gone |
 | ![11](images/11-rascal.png) | ![12](images/12-kip.png) |
 
 ## K Nearest Neighbors Cosine Distance (Song-Song and Playlist-Playlist)
@@ -65,7 +65,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
 
 | Previous Songs        | Recommended Songs |
 |:-------------|:------------------|
-| Lookin Boy - Main Version, Do Ya Head Like This, Scenario - LP Mix, It’s Goin’ Down (feat. Nitti), Beautiful Girls, Sexy Can I feat. Yung Berg, Look At Me Now, SexyBack, Soul Survivor, Gin and Juice | Gold Digger, Ignition - Remix, Buy U a Drank (Shawty Snappin’), It Wasn’t Me, Tipsy - Club Mix, Yeah!, Kiss Me Thru The Phone, Get Low - Street, In Da Club, Hot In Herre |
+| Lookin Boy - Main Version, Do Ya Head Like This, Scenario - LP Mix, It’s Goin’ Down (feat. Nitti), Beautiful Girls, Sexy Can I feat. Yung Berg, Look At Me Now, SexyBack, Soul Survivor, Gin and Juice | Bossy - Feat. Too $hort, Say My Name, Magnolia, Beautiful Girls, 7 Days, The Sign, Teach Me How to Dougie, Misery Business, Creep, Ice Ice Baby |
 | ![15](images/15-ray.png) | ![16](images/16-nelly.png) |
 
 ## Neural Networks (Song-Song and Playlist-Playlist)
@@ -88,7 +88,7 @@ The results significantly improved by analyzing artists. In this case our predic
 
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | DNA, Bad and Boujee, Rockstar, Mask Off, T-Shirt, Passionfruit, iSpy (feat. Lil Yachty)|
+| Planez, Money Longer, That’s What I Like, Rollin, Location, Wild Thoughts, Magnolia, Drowning (feat. Kodak Black) | Congratulations, XO Tour Llif3 |
 | ![18](images/18-magno.png) | ![19](images/19-ispy.png) |
 
 **Playlist-Artist**
@@ -105,7 +105,7 @@ We next moved into constructing a series of models based on audio feature metada
 
 | Previous Songs (sample)        | Recommended Songs |
 |:-------------|:------------------|
-| Juke Box Hero, Holiday/Boulevard of Broken Dreams, Girlfriend (German Version), I Don’t Want to Miss a Thing, How You Remind Me, Bad Day, Slide, Hanging By a Moment, Rape Me, Chasing Cars | Can’t Stop, Big Yellow Taxi, First Date, Paris (Ooh La La), Hey Baby, I’m Going Free (Jailbreak), Say I’m Wrong, Ride, One World feat. Siti Monroe, Beautiful Day |
+| Juke Box Hero, Holiday/Boulevard of Broken Dreams, Girlfriend (German Version), I Don’t Want to Miss a Thing, How You Remind Me, Bad Day, Slide, Hanging By a Moment, Rape Me, Chasing Cars | Right Here, More Than a Feeling, Not Gonna Kill You, Better Off Now, Monday, Runway Houses City Clouds, Boys On the Radio, Sun Is Shining, Move for Me, Threads |
 | ![23](images/23-lifehouse.png) | ![24](images/24-joni.png) |
 
 ## Content-Based Classification Tree with Boosting
