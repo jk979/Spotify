@@ -47,20 +47,3 @@ L.M. de Campos, J.M. Fernandez-Luna, J.F. Huete and M.A. Rueda-Morales. Combinin
 [EDA](./eda.html).
 [Models](./models.html).
 [Conclusions and References](./conclusions.html).
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-#code testing
-features_df2 = pd.merge(unique_tracks2,features_df,how='left',on='track_uri')
-features_df2.index = features_df2.track_uri
-to_keep = ['acousticness','danceability','energy','liveness','loudness','speechiness','tempo','valence','negativity','neutrality','positivity']
-features_df2 = features_df2[to_keep]
-features_df2
-```
-
-```
-The final element.
-```
