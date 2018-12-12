@@ -124,6 +124,7 @@ A qualitative example demonstrating the capabilities of each recommender is incl
 Subsequently, we implemented a kNN algorithm as well, a similar type of distance-based algorithm, using cosine distance. We utilized cosine distance between different inputs based on precedent in the literature. Again, an item-item recommendation approach was utilized initially, finding the nearest neighbors to a given song based on how many of the same playlists they both appeared in. Subsequently, we expanded to a playlist-playlist based approach, finding similarities between given playlists based on which songs they both included, and then recommending songs from the similar playlists. The song-song genre validation score was 0.6 and the user-user genre validation score 0.33.
 
 ```def predict_knnss(pid,tracks_frame,unique_tracks,num_recommendations=10,show_previous=10,n_sample=5,per_song=5,verbose=True):
+
     existing_songs = pd.DataFrame(tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:]==1])
     existing_join = pd.merge(existing_songs,unique_tracks,how='left',left_on=existing_songs.index,right_on='track_uri')
     tracks_transpose = tracks_frame.transpose()
@@ -152,6 +153,7 @@ Subsequently, we implemented a kNN algorithm as well, a similar type of distance
 ```
 
 ```def predict_knnuu(pid,tracks_frame,unique_tracks,num_recommendations=10,show_previous=10,num_playlists=3,verbose=True):
+
     existing_songs = pd.DataFrame(tracks_frame.iloc[pid,:][tracks_frame.iloc[pid,:]==1])
     existing_join = pd.merge(existing_songs,unique_tracks,how='left',left_on=existing_songs.index,right_on='track_uri')
     model_knnuu = NearestNeighbors(metric = 'cosine',algorithm = 'brute')
