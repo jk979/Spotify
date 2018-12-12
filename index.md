@@ -12,7 +12,8 @@ We experimented with both collaborative filtering and content-based techniques, 
 
 For validation, we grappled with the normative goals of our analysis, as we want to present users with songs they are likely to enjoy, but not merely the same artists and songs they are already listening to. We settled on genre-based validation, although this technique was not perfect, as Spotify provides genre data at a granular level that sometimes created effective false negatives during validation. Overall, through the more robust models we were able to consistently achieve cross-validation scores in the range of 0.4-0.5 based on the mode of recommended songs’ genre being equal to the mode of existing songs’ genres.
 
-![001](images/001-intro.jpeg) | ![002](images/002-intro.jpeg) 
+![001](images/001-intro.jpeg) | ![002](images/002-intro.jpeg)
+*Spotify currently suggests songs to listeners based on what they already listen to.*
 
 ## Literature Review
 
