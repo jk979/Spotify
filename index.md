@@ -11,7 +11,9 @@ Our task at hand was to create a system for recommending songs for Spotify users
 We experimented with both collaborative filtering and content-based techniques, and found generally more robust performance from the collaborative filtering methods. For content-based techniques, we generated data through natural language processing (NLP) based on song lyrics, and accessed audio feature metadata provided through Spotify’s API. For collaborative filtering, the techniques tested included SVD matrix factorization, distance-based techniques (Pearson correlation and cosine-distance kNN), and neural networks. Where applicable, we tested different flavors of these techniques, including song-song distance as well as playlist-playlist distance. For our neural networks, we found greater predictive success by using artist-playlist pairs rather than song-playlist pairs, as this helps mitigates against sparsity in the data, a recurring challenge throughout our analysis.
 
 For validation, we grappled with the normative goals of our analysis, as we want to present users with songs they are likely to enjoy, but not merely the same artists and songs they are already listening to. We settled on genre-based validation, although this technique was not perfect, as Spotify provides genre data at a granular level that sometimes created effective false negatives during validation. Overall, through the more robust models we were able to consistently achieve cross-validation scores in the range of 0.4-0.5 based on the mode of recommended songs’ genre being equal to the mode of existing songs’ genres.
-[Insert some relevant Spotify image or graphic]
+
+![001](images/001-intro.jpeg)
+![002](images/002-intro.jpeg) 
 
 ## Literature Review
 
