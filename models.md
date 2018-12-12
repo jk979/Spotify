@@ -154,7 +154,4 @@ Overall, based on qualitative analysis of the playlist and performance using cro
 ![29](images/29-cv.png)  
 *Figure 6*
 
-
-_yay_
-
 [back](./)

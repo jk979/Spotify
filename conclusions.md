@@ -6,7 +6,7 @@ layout: default
 
 ## Future Expansions
 
-WWhile we tested a wide variety of models, we have by no means completed an exhaustive analysis of the various approaches discussed in the literature regarding collaborative-filtering and content recommendation techniques. Many of these techniques are, however, related to the ones we did test out. For example, Bauckhage (2015) showed that k-Means Clustering can be specified as a type of matrix factorization problem as well. There are in addition numerous methodologies for distance-based recommendation, of which we tested only a sample. Experimenting with these similar methodologies could represent a way to improve our results at the margins.
+While we tested a wide variety of models, we have by no means completed an exhaustive analysis of the various approaches discussed in the literature regarding collaborative-filtering and content recommendation techniques. Many of these techniques are, however, related to the ones we did test out. For example, Bauckhage (2015) showed that k-Means Clustering can be specified as a type of matrix factorization problem as well. There are in addition numerous methodologies for distance-based recommendation, of which we tested only a sample. Experimenting with these similar methodologies could represent a way to improve our results at the margins.
 
 In the future our work could be expanded by a project to analyze stacking techniques and ways to improve the interactions between our various recommenders. In this specific context, this could be a promising avenue, as some of our techniques would be optimized within a specific feature region. For example, we might be able to improve performance of an engine by first using SVD matrix factorization to identify latent factors that approximate genre, and then within those genre categories make specific recommendations based on audio features and mood. These could be more successful than making recommendations based on metadata without any prior knowledge of user’s preferences.
 
@@ -38,8 +38,5 @@ S. Li. How did we build book recommender systems in an hour part 2 - k nearest n
 P. Parhi, A. Pal and M. Aggarwal. A survey of methods of collaborative filtering techniques. International Conference on Inventive Systems and Control, 2017.
 
 X. Su and T.M. Khoshgoftaar. A survey of collaborative filtering techniques. Advances in Artificial Intelligence, 2009.
-
-
-_yay_
 
 [back](./)
